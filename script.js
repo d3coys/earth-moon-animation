@@ -24,7 +24,7 @@ const earthGeometry = new THREE.SphereGeometry(1, 64, 64);
 const earthMaterial = new THREE.MeshPhongMaterial({
     map: earthTexture,
     bumpMap: earthBumpMap,
-    bumpScale: 0.0105, // Reduced bump scale by 70%
+    bumpScale: 0.0035, // Reduced bump scale by 90%
     emissive: 0x080808, // Reduced emission by 50%
     shininess: 15 // Reduced shininess by 50%
 });
@@ -36,7 +36,7 @@ const moonGeometry = new THREE.SphereGeometry(0.27, 64, 64);
 const moonMaterial = new THREE.MeshPhongMaterial({
     map: moonTexture,
     bumpMap: moonBumpMap,
-    bumpScale: 0.0105, // Reduced bump scale by 70%
+    bumpScale: 0.0035, // Reduced bump scale by 90%
     emissive: 0x080808, // Reduced emission by 50%
     shininess: 15 // Reduced shininess by 50%
 });
@@ -60,7 +60,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     // Rotate the Earth on its axis
-    earth.rotation.y += 0.0012; // Increased rotation speed by 20%
+    earth.rotation.y += 0.00108; // Decreased rotation speed by 10%
 
     // Rotate the Moon on its axis and around the Earth
     moon.rotation.y += 0.001;
