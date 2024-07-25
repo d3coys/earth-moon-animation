@@ -20,7 +20,7 @@ const earthGeometry = new THREE.SphereGeometry(1, 32, 32);
 const earthMaterial = new THREE.MeshPhongMaterial({
     map: earthTexture,
     emissive: 0x333333, // Add a bit of emission to make it brighter
-    shininess: 10 // Add some shininess for brightness
+    shininess: 7 // Add some shininess for brightness
 });
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 scene.add(earth);
@@ -39,7 +39,7 @@ scene.add(moon);
 moon.position.set(2, 0, 0);
 
 // Add a directional light to simulate the sun
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5); // Increase the intensity of the light
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Increase the intensity of the light
 directionalLight.position.set(5, 0, 0); // Position the light to the right of the Earth
 scene.add(directionalLight);
 
