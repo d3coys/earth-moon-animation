@@ -1,3 +1,6 @@
+// Ensure the JavaScript is executing by adding a console log
+console.log('JavaScript is running');
+
 // Create the scene
 const scene = new THREE.Scene();
 
@@ -12,8 +15,13 @@ document.body.appendChild(renderer.domElement);
 
 // Load the textures
 const textureLoader = new THREE.TextureLoader();
-const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/300px-The_Earth_seen_from_Apollo_17.jpg');
-const moonTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/280px-FullMoon2010.jpg');
+const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/300px-The_Earth_seen_from_Apollo_17.jpg', () => {
+    console.log('Earth texture loaded');
+    animate();
+});
+const moonTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/280px-FullMoon2010.jpg', () => {
+    console.log('Moon texture loaded');
+});
 
 // Create the Earth geometry and material
 const earthGeometry = new THREE.SphereGeometry(1, 32, 32);
@@ -51,5 +59,5 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-// Start the animation
-animate();
+// Start the animation only after textures are loaded
+// animate();
