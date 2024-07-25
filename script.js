@@ -16,21 +16,21 @@ const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/
 const moonTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/d/db/Moonmap_from_clementine_data.png');
 
 // Create the Earth geometry and material
-const earthGeometry = new THREE.SphereGeometry(1, 32, 32);
+const earthGeometry = new THREE.SphereGeometry(1, 64, 64);
 const earthMaterial = new THREE.MeshPhongMaterial({
     map: earthTexture,
     emissive: 0x111111, // Add a bit of emission to make it brighter
-    shininess: 10 // Add some shininess for brightness
+    shininess: 30 // Add more shininess for brightness and smooth transition
 });
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 scene.add(earth);
 
 // Create the Moon geometry and material
-const moonGeometry = new THREE.SphereGeometry(0.27, 32, 32);
+const moonGeometry = new THREE.SphereGeometry(0.27, 64, 64);
 const moonMaterial = new THREE.MeshPhongMaterial({
     map: moonTexture,
     emissive: 0x111111, // Add a bit of emission to make it brighter
-    shininess: 10 // Add some shininess for brightness
+    shininess: 30 // Add more shininess for brightness and smooth transition
 });
 const moon = new THREE.Mesh(moonGeometry, moonMaterial);
 scene.add(moon);
@@ -40,7 +40,7 @@ moon.position.set(2, 0, 0);
 
 // Add a directional light to simulate the sun
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2); // Adjust the intensity of the light
-directionalLight.position.set(5, 0, 0); // Position the light to the right of the Earth
+directionalLight.position.set(10, 0, 0); // Position the light further to the right of the Earth
 scene.add(directionalLight);
 
 // Add an ambient light to simulate scattered light in the atmosphere
