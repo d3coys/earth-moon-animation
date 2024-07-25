@@ -24,7 +24,7 @@ const earthGeometry = new THREE.SphereGeometry(1, 64, 64);
 const earthMaterial = new THREE.MeshPhongMaterial({
     map: earthTexture,
     bumpMap: earthBumpMap,
-    bumpScale: 0.020, // Reduced bump scale by 30%
+    bumpScale: 0.010, // Reduced bump scale by 30%
     emissive: 0x080808, // Reduced emission by 50%
     shininess: 15 // Reduced shininess by 50%
 });
@@ -36,7 +36,7 @@ const moonGeometry = new THREE.SphereGeometry(0.27, 64, 64);
 const moonMaterial = new THREE.MeshPhongMaterial({
     map: moonTexture,
     bumpMap: moonBumpMap,
-    bumpScale: 0.020, // Reduced bump scale by 30%
+    bumpScale: 0.010, // Reduced bump scale by 30%
     emissive: 0x080808, // Reduced emission by 50%
     shininess: 15 // Reduced shininess by 50%
 });
