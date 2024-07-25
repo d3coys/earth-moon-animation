@@ -39,7 +39,7 @@ scene.add(moon);
 moon.position.set(2, 0, 0);
 
 // Add a directional light to simulate the sun
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5); // Maintain the intensity of the light
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1.05); // Reduced the intensity by 30%
 directionalLight.position.set(10, 2, 5); // Position the light to the right and slightly above the Earth
 scene.add(directionalLight);
 
