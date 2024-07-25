@@ -19,7 +19,7 @@ const moonTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/c
 const earthGeometry = new THREE.SphereGeometry(1, 32, 32);
 const earthMaterial = new THREE.MeshPhongMaterial({
     map: earthTexture,
-    emissive: 0x333333, // Add a bit of emission to make it brighter
+    emissive: 0x111111, // Add a bit of emission to make it brighter
     shininess: 10 // Add some shininess for brightness
 });
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
@@ -29,7 +29,7 @@ scene.add(earth);
 const moonGeometry = new THREE.SphereGeometry(0.27, 32, 32);
 const moonMaterial = new THREE.MeshPhongMaterial({
     map: moonTexture,
-    emissive: 0x333333, // Add a bit of emission to make it brighter
+    emissive: 0x111111, // Add a bit of emission to make it brighter
     shininess: 10 // Add some shininess for brightness
 });
 const moon = new THREE.Mesh(moonGeometry, moonMaterial);
@@ -39,12 +39,12 @@ scene.add(moon);
 moon.position.set(2, 0, 0);
 
 // Add a directional light to simulate the sun
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.9); // Reduce the intensity by 40%
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2); // Adjust the intensity of the light
 directionalLight.position.set(5, 0, 0); // Position the light to the right of the Earth
 scene.add(directionalLight);
 
 // Add an ambient light to simulate scattered light in the atmosphere
-const ambientLight = new THREE.AmbientLight(0x333333, 0.3); // Reduce the intensity by 40%
+const ambientLight = new THREE.AmbientLight(0x222222, 0.2); // Lower intensity ambient light for overall brightness
 scene.add(ambientLight);
 
 // Animation loop
