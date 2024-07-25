@@ -38,13 +38,13 @@ scene.add(moon);
 // Position the Moon relative to the Earth
 moon.position.set(2, 0, 0);
 
-// Add a light source to the right of the Earth
-const light = new THREE.PointLight(0xffffff, 1.5, 100); // Increase the intensity of the light
-light.position.set(5, 0, 0);
-scene.add(light);
+// Add a directional light to simulate the sun
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5); // Increase the intensity of the light
+directionalLight.position.set(5, 0, 0); // Position the light to the right of the Earth
+scene.add(directionalLight);
 
-// Add an ambient light to brighten the scene overall
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Add ambient light for overall brightness
+// Add an ambient light to simulate scattered light in the atmosphere
+const ambientLight = new THREE.AmbientLight(0x333333); // Lower intensity ambient light for overall brightness
 scene.add(ambientLight);
 
 // Animation loop
