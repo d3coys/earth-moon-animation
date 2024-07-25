@@ -3,7 +3,7 @@ const scene = new THREE.Scene();
 
 // Create the camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 5;
+camera.position.z = 3.5; // Move the camera closer by 30%
 
 // Create the renderer
 const renderer = new THREE.WebGLRenderer();
@@ -60,7 +60,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     // Rotate the Earth on its axis
-    earth.rotation.y += 0.0020; // Increased rotation speed by 20%
+    earth.rotation.y += 0.0025; // Increased rotation speed by 20%
 
     // Rotate the Moon on its axis and around the Earth
     moon.rotation.y += 0.001;
