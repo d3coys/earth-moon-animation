@@ -17,13 +17,21 @@ const moonTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/c
 
 // Create the Earth geometry and material
 const earthGeometry = new THREE.SphereGeometry(1, 32, 32);
-const earthMaterial = new THREE.MeshPhongMaterial({ map: earthTexture });
+const earthMaterial = new THREE.MeshPhongMaterial({
+    map: earthTexture,
+    emissive: 0x333333, // Add a bit of emission to make it brighter
+    shininess: 10 // Add some shininess for brightness
+});
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 scene.add(earth);
 
 // Create the Moon geometry and material
 const moonGeometry = new THREE.SphereGeometry(0.27, 32, 32);
-const moonMaterial = new THREE.MeshPhongMaterial({ map: moonTexture });
+const moonMaterial = new THREE.MeshPhongMaterial({
+    map: moonTexture,
+    emissive: 0x333333, // Add a bit of emission to make it brighter
+    shininess: 10 // Add some shininess for brightness
+});
 const moon = new THREE.Mesh(moonGeometry, moonMaterial);
 scene.add(moon);
 
@@ -31,9 +39,13 @@ scene.add(moon);
 moon.position.set(2, 0, 0);
 
 // Add a light source to the right of the Earth
-const light = new THREE.PointLight(0xffffff, 1, 100);
+const light = new THREE.PointLight(0xffffff, 1.5, 100); // Increase the intensity of the light
 light.position.set(5, 0, 0);
 scene.add(light);
+
+// Add an ambient light to brighten the scene overall
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Add ambient light for overall brightness
+scene.add(ambientLight);
 
 // Animation loop
 function animate() {
