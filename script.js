@@ -15,10 +15,16 @@ const textureLoader = new THREE.TextureLoader();
 const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/c/cf/WorldMap-A_non-Frame.png', startAnimation);
 const moonTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/d/db/Moonmap_from_clementine_data.png');
 
+// Load the bump maps
+const earthBumpMap = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/c/cf/WorldMap-A_non-Frame.png');
+const moonBumpMap = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/d/db/Moonmap_from_clementine_data.png');
+
 // Create the Earth geometry and material
 const earthGeometry = new THREE.SphereGeometry(1, 64, 64);
 const earthMaterial = new THREE.MeshPhongMaterial({
     map: earthTexture,
+    bumpMap: earthBumpMap,
+    bumpScale: 0.05, // Adjust bump scale to increase relief
     emissive: 0x080808, // Reduced emission by 50%
     shininess: 15 // Reduced shininess by 50%
 });
@@ -29,6 +35,8 @@ scene.add(earth);
 const moonGeometry = new THREE.SphereGeometry(0.27, 64, 64);
 const moonMaterial = new THREE.MeshPhongMaterial({
     map: moonTexture,
+    bumpMap: moonBumpMap,
+    bumpScale: 0.05, // Adjust bump scale to increase relief
     emissive: 0x080808, // Reduced emission by 50%
     shininess: 15 // Reduced shininess by 50%
 });
